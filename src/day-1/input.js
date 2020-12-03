@@ -1,5 +1,5 @@
 
-const input =`1228
+const input = `1228
 1584
 1258
 1692
@@ -198,6 +198,6 @@ const input =`1228
 1340
 1292
 1979
-1876`;
+1876`
 
-module.exports = {input}
+module.exports = { input }

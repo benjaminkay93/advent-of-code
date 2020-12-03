@@ -998,6 +998,6 @@ const input = `4-6 b: bbbdbtbbbj
 4-6 v: vmnfvvvvmcmlh
 6-9 g: jgcgggkbbmgbs
 7-8 t: ttcfwtgjtcttv
-3-4 j: tjjj`;
+3-4 j: tjjj`
 
-module.exports = {input}
+module.exports = { input }
