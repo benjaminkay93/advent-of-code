@@ -127,7 +127,7 @@ const partTwo = (input) => {
     return invlaidFields
   })
 
-  return validPassports;
+  return validPassports
 }
 
 module.exports = { partOne, partTwo }

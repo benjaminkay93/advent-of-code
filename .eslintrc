@@ -3,5 +3,8 @@
     "plugins": [],
     "env": {
         "jest": true
+    },
+    "rules": {
+        "quotes": "off"
     }
 }
