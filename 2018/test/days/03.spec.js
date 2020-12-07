@@ -1,6 +1,6 @@
-import fs from 'fs-extra'
-import solution from '../../src/days/03'
-import helper from '../helper'
+const fs = require('fs-extra')
+const solution = require('../../days/03')
+const helper = require('../helper')
 
 fs.readFileSync = jest.fn()
 

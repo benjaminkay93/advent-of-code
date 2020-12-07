@@ -1,4 +1,4 @@
-import { getArrayInput } from './helpers'
+const { getArrayInput } = require('./helpers')
 
 let grid = {}
 let claims = {}
@@ -84,7 +84,7 @@ const partTwo = () => {
   return parseInt(Object.values(claims)[0], 10)
 }
 
-export default {
+module.exports = {
   partOne,
   partTwo,
 }

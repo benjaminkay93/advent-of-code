@@ -1,4 +1,4 @@
-import { getArrayInput } from './helpers'
+const { getArrayInput } = require('./helpers')
 
 const getIntegerArray = filename => {
   return getArrayInput(filename).map(item => parseInt(item, 10))
@@ -29,7 +29,7 @@ const partTwo = () => {
   return currentValue
 }
 
-export default {
+module.exports = {
   partOne,
   partTwo,
 }

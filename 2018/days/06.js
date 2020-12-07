@@ -1,4 +1,4 @@
-import { getArrayInput } from './helpers'
+const { getArrayInput } = require('./helpers')
 
 const GRID_OFFSET = 2
 
@@ -79,7 +79,7 @@ const partTwo = () => {
   return input
 }
 
-export default {
+module.exports = {
   partOne,
   partTwo,
 }

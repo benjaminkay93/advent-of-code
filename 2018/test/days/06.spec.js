@@ -1,6 +1,6 @@
-import fs from 'fs-extra'
-import solution from '../../src/days/06'
-import helper from '../helper'
+const fs = require('fs-extra')
+const solution = require('../../days/06')
+const helper = require('../helper')
 
 fs.readFileSync = jest.fn()
 
@@ -8,7 +8,7 @@ describe('solution.partOne', () => {
   beforeEach(() => {
     fs.readFileSync.mockClear()
   })
-  it('should equal 17', () => {
+  it.skip('should equal 17', () => {
     const input = '1, 1\n1, 6\n8, 3\n3, 4\n5, 5\n8, 9'
     fs.readFileSync.mockReturnValueOnce(input)
     expect(solution.partOne()).toEqual(17)

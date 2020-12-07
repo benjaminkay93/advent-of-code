@@ -1,4 +1,4 @@
-import day from './days/day'
+const day = require('./days/day')
 
 const report = (day, dayFunction, part) => {
   const startOfRunTime = Date.now()
@@ -21,4 +21,4 @@ const reportAllDays = () => {
   report('5.2', day.five, 'partTwo')
 }
 
-export default reportAllDays
+module.exports = reportAllDays

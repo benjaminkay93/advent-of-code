@@ -1,10 +1,10 @@
-import one from './01'
-import two from './02'
-import three from './03'
-import four from './04'
-import five from './05'
+const one = require('./01')
+const two = require('./02')
+const three = require('./03')
+const four = require('./04')
+const five = require('./05')
 
-export default {
+module.exports = {
   one,
   two,
   three,

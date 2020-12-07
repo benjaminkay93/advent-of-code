@@ -1,4 +1,4 @@
-import { getStringInput } from './helpers'
+const { getStringInput } = require('./helpers')
 
 const compareCharacters = (a, b) => {
   const aCharCode = a.charCodeAt(0)
@@ -62,7 +62,8 @@ const partTwo = () => {
   }, stringToParse.length)
 }
 
-export default {
+
+module.exports = {
   partOne,
   partTwo,
 }

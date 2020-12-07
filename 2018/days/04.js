@@ -1,4 +1,4 @@
-import { getArrayInput } from './helpers'
+const { getArrayInput } = require('./helpers')
 
 const sortArrayByTime = input => input.sort()
 
@@ -100,7 +100,7 @@ const partTwo = () => {
   return guardMostFrequentMinuteAsleep.guard * guardMostFrequentMinuteAsleep.minute
 }
 
-export default {
+module.exports = {
   partOne,
   partTwo,
 }

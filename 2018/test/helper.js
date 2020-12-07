@@ -2,4 +2,4 @@ const transformToInput = string => {
   return string.split(', ').join('\n')
 }
 
-export default { transformToInput }
+module.exports = { transformToInput }

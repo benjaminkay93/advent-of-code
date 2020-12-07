@@ -1,4 +1,4 @@
-import { getArrayInput } from './helpers'
+const { getArrayInput } = require('./helpers')
 
 const getCountsInWord = word => {
   let object = {}
@@ -70,7 +70,8 @@ const partTwo = () => {
   return deleteNonMatchingLetter(matchingWords)
 }
 
-export default {
+
+module.exports = {
   partOne,
   partTwo,
 }
