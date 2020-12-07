@@ -62,8 +62,7 @@ const partTwo = () => {
   }, stringToParse.length)
 }
 
-
 module.exports = {
   partOne,
-  partTwo,
+  partTwo
 }

@@ -1,14 +1,14 @@
 const { getArrayInput } = require('./helpers')
 
 let grid = {}
-let claims = {}
+const claims = {}
 
 const claimedSquares = (input) => {
-  let claims = []
+  const claims = []
   let x = input.xStart
   let y = input.yStart
-  let xMax = input.xStart + input.width
-  let ymax = input.yStart + input.height
+  const xMax = input.xStart + input.width
+  const ymax = input.yStart + input.height
 
   while (x < xMax) {
     while (y < ymax) {
@@ -29,7 +29,7 @@ const getClaimedSquares = item => {
     xStart: parseInt(regexedInput[2], 10),
     yStart: parseInt(regexedInput[3], 10),
     width: parseInt(regexedInput[4], 10),
-    height: parseInt(regexedInput[5], 10),
+    height: parseInt(regexedInput[5], 10)
   }
   const id = regexedInput[1]
   const wants = claimedSquares(parsedInput)
@@ -38,7 +38,7 @@ const getClaimedSquares = item => {
 
   return {
     id,
-    wants,
+    wants
   }
 }
 
@@ -86,5 +86,5 @@ const partTwo = () => {
 
 module.exports = {
   partOne,
-  partTwo,
+  partTwo
 }

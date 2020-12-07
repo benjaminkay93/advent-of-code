@@ -1,7 +1,7 @@
 const { getArrayInput } = require('./helpers')
 
 const getCountsInWord = word => {
-  let object = {}
+  const object = {}
   word.split('').forEach(letter => {
     switch (object[letter]) {
       case 2:
@@ -18,7 +18,7 @@ const getCountsInWord = word => {
   const values = Object.values(object)
   return {
     three: values.includes(3),
-    two: values.includes(2),
+    two: values.includes(2)
   }
 }
 
@@ -27,7 +27,7 @@ const partOne = () => {
   const counts = input.map(getCountsInWord).reduce((accumulator, word) => {
     return {
       three: word.three ? accumulator.three + 1 : accumulator.three,
-      two: word.two ? accumulator.two + 1 : accumulator.two,
+      two: word.two ? accumulator.two + 1 : accumulator.two
     }
   }, { three: 0, two: 0 })
   return counts.three * counts.two
@@ -53,7 +53,7 @@ const deleteNonMatchingLetter = ([firstWord, secondWord]) => {
 const partTwo = () => {
   const input = getArrayInput('02-input')
   const words = input.map(word => word.split(''))
-  let matchingWords = []
+  const matchingWords = []
 
   const hoistWords = yankableWordsAndDestination(words, matchingWords)
 
@@ -70,8 +70,7 @@ const partTwo = () => {
   return deleteNonMatchingLetter(matchingWords)
 }
 
-
 module.exports = {
   partOne,
-  partTwo,
+  partTwo
 }

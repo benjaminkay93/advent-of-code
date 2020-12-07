@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test:jest": "jest",
-    "test:lint": "eslint --ext .js --ext .jsx src",
+    "test:lint": "eslint --ext .js --ext .jsx ./",
     "test:lint:fix": "npm run test:lint -- --fix"
   },
   "devDependencies": {

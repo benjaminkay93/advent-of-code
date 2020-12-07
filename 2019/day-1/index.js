@@ -6,7 +6,7 @@ const partOne = (value) => {
 
 const calculateFuel = (value) => {
   const fuelRequiredForWeight = Math.floor(value / 3) - 2
-  if(fuelRequiredForWeight <= 0) return 0
+  if (fuelRequiredForWeight <= 0) return 0
   return fuelRequiredForWeight + calculateFuel(fuelRequiredForWeight)
 }
 

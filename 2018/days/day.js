@@ -9,5 +9,5 @@ module.exports = {
   two,
   three,
   four,
-  five,
+  five
 }

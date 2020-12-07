@@ -16,7 +16,7 @@ const partTwo = () => {
   const inputLength = input.length
 
   let currentValue = 0
-  let valuesSeen = {}
+  const valuesSeen = {}
   let index = 0
 
   while (!valuesSeen[currentValue]) {
@@ -31,5 +31,5 @@ const partTwo = () => {
 
 module.exports = {
   partOne,
-  partTwo,
+  partTwo
 }

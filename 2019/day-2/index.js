@@ -2,13 +2,13 @@ const END_PROGRAM = 99
 const ADD = 1
 const MULTIPLY = 2
 
-const add = (input, instructionPointer)  => {
+const add = (input, instructionPointer) => {
   const firstParameter = input[input[instructionPointer + 1]]
   const secondParameter = input[input[instructionPointer + 2]]
   input[input[instructionPointer + 3]] = firstParameter + secondParameter
 }
 
-const multiply = (input, instructionPointer)  => {
+const multiply = (input, instructionPointer) => {
   const firstParameter = input[input[instructionPointer + 1]]
   const secondParameter = input[input[instructionPointer + 2]]
   input[input[instructionPointer + 3]] = firstParameter * secondParameter
@@ -37,8 +37,8 @@ const runNextCommand = (input, instructionPointer) => {
 }
 
 const partOne = (input) => {
-  let instructionPointer = 0
-  runNextCommand(input, instructionPointer);
+  const instructionPointer = 0
+  runNextCommand(input, instructionPointer)
   return input
 }
 
@@ -46,13 +46,13 @@ const partTwo = (input) => {
   let noun = 0
   let verb = 0
 
-  for( let i = 0; i <= 99; i++){
-    for( let j = 0; j <= 99; j++){
+  for (let i = 0; i <= 99; i++) {
+    for (let j = 0; j <= 99; j++) {
       const uniqueArray = input.map(x => x) // clone array, don't edit the first one
       uniqueArray[1] = i
-      uniqueArray[2] = j 
+      uniqueArray[2] = j
       const output = partOne(uniqueArray)[0]
-      if(output === 19690720) {
+      if (output === 19690720) {
         noun = i
         verb = j
       }
@@ -60,6 +60,5 @@ const partTwo = (input) => {
   }
   return (100 * noun) + verb
 }
-
 
 module.exports = { partOne, partTwo }
