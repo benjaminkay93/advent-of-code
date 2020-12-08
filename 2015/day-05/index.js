@@ -47,7 +47,7 @@ const partTwo = (input) => {
     })
 
     letters.forEach((letter, index) => {
-      if(doubleLetter) return
+      if (doubleLetter) return
       if (index === letters.length - 1) return
 
       const searchTerm = `${letter}${letters[index + 1]}`
