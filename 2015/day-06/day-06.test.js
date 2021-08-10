@@ -27,7 +27,7 @@ turn off 499,499 through 500,500`
 })
 
 test('part 1 actual', () => {
-  expect(partOne(input)).toBe()
+  expect(partOne(input)).toBe(418954)
 })
 
 test('part 2', () => {
