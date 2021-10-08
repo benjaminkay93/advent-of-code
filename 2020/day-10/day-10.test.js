@@ -109,6 +109,6 @@ test('part 2 test two', () => {
   expect(partTwo(testInput)).toBe(19208)
 })
 
-test.skip('part 2 actual', () => {
-  expect(partTwo(input)).toBe()
+test('part 2 actual', () => {
+  expect(partTwo(input)).toBe(7086739046912)
 })

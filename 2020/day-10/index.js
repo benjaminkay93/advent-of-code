@@ -16,23 +16,36 @@ const partOne = (input) => {
   return tracker['1'] * tracker['3']
 }
 
+const precomputedHash = {
+  '0': 1,
+  '0,1': 1,
+  '0,1,2': 2,
+  '0,1,2,3': 4,
+  '0,1,2,3,4': 7
+}
+
 const partTwo = (input) => {
   const parsedInput = `${input}\n0`.split('\n').map(num => Number(num)).sort((a, b) => a - b)
 
   const splitArray = parsedInput.reduce((acc, val, index) => {
-    if (acc === '') return `,${val}`
-    if (parsedInput[index + 1] - val === 3) return `${acc},${val}\n`
-    return `${acc},${val}`
-  }, '').split('\n')
+    if (acc.inProgress === []) return { ...acc, inProgress: [val] }
+    if (!parsedInput[index + 1] || parsedInput[index + 1] - val === 3) {
+      return { completed: [...acc.completed, [...acc.inProgress, val]], inProgress: [] }
+    }
+    return { ...acc, inProgress: [...acc.inProgress, val] }
+  }, { completed: [], inProgress: [] })
 
-  return splitArray.map(val => {
-    return val.split(',').filter(val => val)
+  const simplifiedArray = splitArray.completed.map(subArray => {
+    const numberToReduceBy = subArray[0]
+    return subArray.map((item) => (item - numberToReduceBy))
   })
-  
-  // .filter(val => val > 1).reverse().reduce((acc, val) => {
-  //   if (!acc) return val
-  //   return acc ** val
-  // })
+
+  const calculateSubArrayValue = simplifiedArray.map(subArray => {
+    const hashLookup = subArray.join(',')
+    return precomputedHash[hashLookup]
+  })
+
+  return calculateSubArrayValue.reduce((acc, val) => acc * val, 1)
 }
 
 module.exports = { partOne, partTwo }
