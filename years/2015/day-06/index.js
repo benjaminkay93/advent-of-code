@@ -2,20 +2,20 @@ const parseInput = input => input.split('\n').map(line => {
   if (line.includes('turn on')) {
     return {
       type: 'on',
-      area: line.replace('turn on ', '').split(' through ').map(xy => xy.split(','))
+      area: line.replace('turn on ', '').split(' through ').map(xy => xy.split(',')),
     }
   }
   if (line.includes('turn off')) {
     return {
       type: 'off',
-      area: line.replace('turn off ', '').split(' through ').map(xy => xy.split(','))
+      area: line.replace('turn off ', '').split(' through ').map(xy => xy.split(',')),
     }
   }
   if (line.includes('toggle')) {
     const area = line.replace('toggle ', '').split(' through ').map(xy => xy.split(','))
     return {
       type: 'toggle',
-      area
+      area,
     }
   }
   return undefined
@@ -29,7 +29,7 @@ const partOne = (input) => {
   const functions = {
     on: (coordinates) => grid.add(coordinates),
     off: (coordinates) => grid.delete(coordinates),
-    toggle: (coordinates) => grid.has(coordinates) ? grid.delete(coordinates) : grid.add(coordinates)
+    toggle: (coordinates) => grid.has(coordinates) ? grid.delete(coordinates) : grid.add(coordinates),
   }
 
   parsedInput.forEach(({ type, area: [[startX, startY], [endX, endY]] }) => {

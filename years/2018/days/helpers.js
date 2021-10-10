@@ -16,5 +16,5 @@ const getStringInput = name => {
 
 module.exports = {
   getArrayInput,
-  getStringInput
+  getStringInput,
 }

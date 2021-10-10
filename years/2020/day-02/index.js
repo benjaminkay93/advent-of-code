@@ -7,7 +7,7 @@ const inputParser = (input) => {
       firstPosition: parseInt(firstPosition, 10),
       lastPosition: parseInt(lastPosition, 10),
       letter,
-      string: string.split('')
+      string: string.split(''),
     }
   })
 }

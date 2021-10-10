@@ -3,7 +3,7 @@ const prepareArray = (rawInput, preamble) => {
   return numbersToCheck.map((val, index) => {
     return {
       val,
-      subArray: rawInput.slice(index, index + preamble)
+      subArray: rawInput.slice(index, index + preamble),
     }
   })
 }

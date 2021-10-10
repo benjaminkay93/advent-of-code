@@ -7,7 +7,7 @@ const parseIntoCoordinates = input => {
     const xy = coordinate.split(', ')
     return {
       x: parseInt(xy[0], 10) + GRID_OFFSET,
-      y: parseInt(xy[1], 10) + GRID_OFFSET
+      y: parseInt(xy[1], 10) + GRID_OFFSET,
     }
   })
 }
@@ -21,14 +21,14 @@ const getUpperAndLowerBounds = (coordinates) => {
 
   return {
     x: unOffsetedCoordinates.x + GRID_OFFSET,
-    y: unOffsetedCoordinates.y + GRID_OFFSET
+    y: unOffsetedCoordinates.y + GRID_OFFSET,
   }
 }
 
 const seedInitialGrid = (bounds, coordinates) => {
   const emptyCell = {
     occupier: [],
-    locked: false
+    locked: false,
   }
 
   const emptyGrid = []
@@ -81,5 +81,5 @@ const partTwo = () => {
 
 module.exports = {
   partOne,
-  partTwo
+  partTwo,
 }

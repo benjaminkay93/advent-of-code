@@ -8,7 +8,7 @@ const addTimeToGuard = (guardLog, guard, time) => {
   guardLog[guard] = {
     ...guardLog[guard],
     [time]: guardLog[guard][time] + 1,
-    totalMinutesAsleep: guardLog[guard].totalMinutesAsleep + 1
+    totalMinutesAsleep: guardLog[guard].totalMinutesAsleep + 1,
   }
 }
 
@@ -47,7 +47,7 @@ const getSleepiestGuard = guardLog => {
     if (guardLog[guard].totalMinutesAsleep > accumulator.totalMinutesAsleep) {
       return {
         guard: parseInt(guard, 10),
-        totalMinutesAsleep: guardLog[guard].totalMinutesAsleep
+        totalMinutesAsleep: guardLog[guard].totalMinutesAsleep,
       }
     }
     return accumulator
@@ -62,7 +62,7 @@ const getSleepiestMinute = (guardLog, guard) => {
       return {
         guard,
         minute: parseInt(key, 10),
-        minutesAsleep: guardLog[guard][key]
+        minutesAsleep: guardLog[guard][key],
       }
     }
     return accumulator
@@ -92,7 +92,7 @@ const partTwo = () => {
       return {
         guard: parseInt(guard.guard, 10),
         minute: guard.minute,
-        minutesAsleep: guard.minutesAsleep
+        minutesAsleep: guard.minutesAsleep,
       }
     }
     return accumulator
@@ -102,5 +102,5 @@ const partTwo = () => {
 
 module.exports = {
   partOne,
-  partTwo
+  partTwo,
 }

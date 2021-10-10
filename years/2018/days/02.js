@@ -18,7 +18,7 @@ const getCountsInWord = word => {
   const values = Object.values(object)
   return {
     three: values.includes(3),
-    two: values.includes(2)
+    two: values.includes(2),
   }
 }
 
@@ -27,7 +27,7 @@ const partOne = () => {
   const counts = input.map(getCountsInWord).reduce((accumulator, word) => {
     return {
       three: word.three ? accumulator.three + 1 : accumulator.three,
-      two: word.two ? accumulator.two + 1 : accumulator.two
+      two: word.two ? accumulator.two + 1 : accumulator.two,
     }
   }, { three: 0, two: 0 })
   return counts.three * counts.two
@@ -72,5 +72,5 @@ const partTwo = () => {
 
 module.exports = {
   partOne,
-  partTwo
+  partTwo,
 }

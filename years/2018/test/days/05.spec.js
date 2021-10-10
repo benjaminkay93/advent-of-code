@@ -10,7 +10,7 @@ describe('solution.partOne', () => {
   const returnsZero = [
     'aA',
     'Aa',
-    'abBA'
+    'abBA',
   ]
   it.each(returnsZero)('should equal 0 when passed %s', (value) => {
     fs.readFileSync.mockReturnValueOnce(value)

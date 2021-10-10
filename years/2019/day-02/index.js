@@ -17,13 +17,13 @@ const multiply = (input, instructionPointer) => {
 const instructionPointerMove = {
   [ADD]: 4,
   [MULTIPLY]: 4,
-  [END_PROGRAM]: 1
+  [END_PROGRAM]: 1,
 }
 
 const instructionMap = {
   [ADD]: add,
   [MULTIPLY]: multiply,
-  [END_PROGRAM]: () => {}
+  [END_PROGRAM]: () => {},
 }
 
 const runNextCommand = (input, instructionPointer) => {

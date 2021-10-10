@@ -17,11 +17,11 @@ const partOne = (input) => {
 }
 
 const precomputedHash = {
-  '0': 1,
+  0: 1,
   '0,1': 1,
   '0,1,2': 2,
   '0,1,2,3': 4,
-  '0,1,2,3,4': 7
+  '0,1,2,3,4': 7,
 }
 
 const partTwo = (input) => {

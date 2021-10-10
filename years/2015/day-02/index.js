@@ -4,7 +4,7 @@ const partOne = (input) => {
     const sizes = [
       multiples[0] * multiples[1],
       multiples[0] * multiples[2],
-      multiples[1] * multiples[2]
+      multiples[1] * multiples[2],
     ].sort((a, b) => a - b)
     // return sizes
 

@@ -1,10 +1,19 @@
 {
-    "extends": ["standard", "next/core-web-vitals"],
-    "plugins": [],
+    "parser": "babel-eslint",
+    "extends": ["next/core-web-vitals", "standard", "standard-jsx", "standard-react"],
     "env": {
         "jest": true
     },
     "rules": {
-        "quotes": "off"
+        "quotes": "off",
+        "react/react-in-jsx-scope": "off",
+        "comma-dangle": ["error", {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "always-multiline"
+        }],
+        "jsx-quotes": "off"
     }
 }

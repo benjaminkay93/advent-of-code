@@ -31,5 +31,5 @@ const partTwo = () => {
 
 module.exports = {
   partOne,
-  partTwo
+  partTwo,
 }

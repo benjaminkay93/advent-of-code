@@ -19,7 +19,7 @@ const partOne = (input) => {
     const [hold, contents] = bag.split(' bags contain ')
     return {
       ...acc,
-      [hold]: contents
+      [hold]: contents,
     }
   }, {})
 
@@ -54,7 +54,7 @@ const getContents = contents => {
 
     return [
       ...acc,
-      ...fillArray(color, num)
+      ...fillArray(color, num),
     ]
   }, [])
 }
@@ -68,8 +68,8 @@ const partTwo = (input) => {
     return {
       ...acc,
       [hold]: [
-        ...parseContents
-      ]
+        ...parseContents,
+      ],
     }
   }, {})
 

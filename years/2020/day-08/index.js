@@ -17,7 +17,7 @@ const codeRunner = program => {
     jmp: (modifier) => {
       position = position + modifier
       execute()
-    }
+    },
   }
 
   const execute = () => {
@@ -40,7 +40,7 @@ const codeRunner = program => {
 
   return {
     infinite,
-    accumulator
+    accumulator,
   }
 }
 
@@ -49,7 +49,7 @@ const partOne = (input) => {
     const [code, modifier] = input.split(' ')
     return {
       code,
-      modifier: parseInt(modifier, 10)
+      modifier: parseInt(modifier, 10),
     }
   })
 
@@ -63,7 +63,7 @@ const partTwo = (input) => {
     const [code, modifier] = input.split(' ')
     return {
       code,
-      modifier: parseInt(modifier, 10)
+      modifier: parseInt(modifier, 10),
     }
   })
   let found = false

@@ -104,7 +104,7 @@ const validator = {
   hcl: hcl,
   ecl: ecl,
   pid: pid,
-  cid: () => true
+  cid: () => true,
 }
 
 const partTwo = (input) => {
