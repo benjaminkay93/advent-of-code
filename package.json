@@ -1,18 +1,25 @@
 {
-  "name": "advent-of-code-2020",
+  "name": "advent-of-code",
   "version": "1.0.0",
   "description": "Advent of code folks",
   "main": "index.js",
-  "repository": "git@github.com:benjaminkay93/advent-of-code-2020.git",
+  "repository": "git@github.com:benjaminkay93/advent-of-code.git",
   "author": "Benjamin Kay <ben.kay01@hotmail.co.uk>",
   "license": "MIT",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "test:jest": "jest",
     "test:lint": "eslint --ext .js --ext .jsx ./",
     "test:lint:fix": "npm run test:lint -- --fix"
   },
   "devDependencies": {
-    "eslint": "^7.14.0",
+    "@types/react": "17.0.27",
+    "eslint": "8.0.0",
+    "eslint-config-next": "11.1.2",
+    "typescript": "4.4.3",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
@@ -21,8 +28,10 @@
     "jest": "^26.6.3"
   },
   "dependencies": {
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "fs-extra": "^9.0.1",
-    "md5": "^2.3.0",
-    "next": "^11.1.2"
+    "md5": "^2.3.0"
   }
 }

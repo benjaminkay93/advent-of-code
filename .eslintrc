@@ -1,5 +1,5 @@
 {
-    "extends": ["standard"],
+    "extends": ["standard", "next/core-web-vitals"],
     "plugins": [],
     "env": {
         "jest": true
