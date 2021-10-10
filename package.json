@@ -11,6 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "gen:day": "node scripts/generate-day-template.mjs",
+    "gen:year": "node scripts/generate-year-template.mjs",
     "test:jest": "jest",
     "test:lint": "eslint --ext .js,.jsx,.tsx,.ts ./",
     "test:lint:fix": "npm run test:lint -- --fix"

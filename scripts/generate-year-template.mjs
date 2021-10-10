@@ -12,6 +12,7 @@ const generateFolders = (year) => {
   for (let i = 1; i <= 25; i++) {
     const date = i < 10 ? `${i}`.padStart(2, '0') : i
     const folderPath = path.join(dirBase, `day-${date}`)
+    console.log(folderPath)
     if (!existsSync(folderPath)) {
       mkdirSync(folderPath, { recursive: true })
       copyFileSync(indexTemplate, path.join(folderPath, 'index.js'))
@@ -26,5 +27,9 @@ const generateYear = (year) => {
 }
 
 const yearToGenerate = process.argv[2]
+
+if (!yearToGenerate) {
+  throw Error('please provide a valid year argument')
+}
 
 generateYear(yearToGenerate || '2030')
