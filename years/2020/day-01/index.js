@@ -1,9 +1,7 @@
-const { stringToArrayNum } = require('../helpers')
-
 const TARGET = 2020
 
 const partOne = (input) => {
-  const preparedInput = stringToArrayNum(input)
+  const preparedInput = input.split('\n').map(num => parseInt(num, 10))
   const preparedInputLength = preparedInput.length
   let num1
   let num2
@@ -27,7 +25,7 @@ const partOne = (input) => {
 }
 
 const partTwo = (input) => {
-  const preparedInput = stringToArrayNum(input)
+  const preparedInput = input.split('\n').map(num => parseInt(num, 10))
   const preparedInputLength = preparedInput.length
   let num1
   let num2
