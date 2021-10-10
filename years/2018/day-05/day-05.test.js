@@ -1,22 +1,28 @@
 const { partOne, partTwo } = require('.')
 const { input } = require('./input')
 
-test('part 1', () => {
-  const testInput = ``
+const partOneTests = [
+  [0, 'aA'],
+  [0, 'Aa'],
+  [0, 'abBA'],
+  [1, 'cCc'],
+  [10, 'dabAcCaCBAcCcaDA']
+]
 
-  expect(partOne(testInput)).toBe()
+test.each(partOneTests)('part 1', (answer, input) => {
+  expect(partOne(input)).toBe(answer)
 })
 
 test('part 1 actual', () => {
-  expect(partOne(input)).toBe()
+  expect(partOne(input)).toBe(11252)
 })
 
 test('part 2', () => {
-  const testInput = ``
+  const testInput = `dabAcCaCBAcCcaDA`
 
-  expect(partTwo(testInput)).toBe()
+  expect(partTwo(testInput)).toBe(4)
 })
 
 test('part 2 actual', () => {
-  expect(partTwo(input)).toBe()
+  expect(partTwo(input)).toBe(6118)
 })
