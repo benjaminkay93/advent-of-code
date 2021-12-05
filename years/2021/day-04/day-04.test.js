@@ -102,5 +102,5 @@ test('part 2 inverted', () => {
 })
 
 test('part 2 actual', () => {
-  expect(partTwo(input)).toBe()
+  expect(partTwo(input)).toBe(21070)
 })

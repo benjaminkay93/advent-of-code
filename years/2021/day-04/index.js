@@ -1,28 +1,31 @@
+const processBoards = (boards) => boards.map(board => {
+  const values = board.trim().split(/\s\s|\s/)
+  const rows = [
+    [values[0], values[1], values[2], values[3], values[4]],
+    [values[5], values[6], values[7], values[8], values[9]],
+    [values[10], values[11], values[12], values[13], values[14]],
+    [values[15], values[16], values[17], values[18], values[19]],
+    [values[20], values[21], values[22], values[23], values[24]],
+  ]
+  const columns = [
+    [values[0], values[5], values[10], values[15], values[20]],
+    [values[1], values[6], values[11], values[16], values[21]],
+    [values[2], values[7], values[12], values[17], values[22]],
+    [values[3], values[8], values[13], values[18], values[23]],
+    [values[4], values[9], values[14], values[19], values[24]],
+  ]
+  return {
+    values,
+    rows,
+    columns,
+    completed: false,
+  }
+})
+
 const partOne = (input) => {
   const [calloutRaw, ...boardsRaw] = input.split('\n\n')
   const bingoCalloutOrder = calloutRaw.split(',')
-  const processedBoards = boardsRaw.map(board => {
-    const values = board.trim().split(/\s\s|\s/)
-    const rows = [
-      [values[0], values[1], values[2], values[3], values[4]],
-      [values[5], values[6], values[7], values[8], values[9]],
-      [values[10], values[11], values[12], values[13], values[14]],
-      [values[15], values[16], values[17], values[18], values[19]],
-      [values[20], values[21], values[22], values[23], values[24]],
-    ]
-    const columns = [
-      [values[0], values[5], values[10], values[15], values[20]],
-      [values[1], values[6], values[11], values[16], values[21]],
-      [values[2], values[7], values[12], values[17], values[22]],
-      [values[3], values[8], values[13], values[18], values[23]],
-      [values[4], values[9], values[14], values[19], values[24]],
-    ]
-    return {
-      values,
-      rows,
-      columns,
-    }
-  })
+  const processedBoards = processBoards(boardsRaw)
 
   const game = {}
 
@@ -76,29 +79,7 @@ const partOne = (input) => {
 const partTwo = (input) => {
   const [calloutRaw, ...boardsRaw] = input.split('\n\n')
   const bingoCalloutOrder = calloutRaw.split(',')
-  const processedBoards = boardsRaw.map(board => {
-    const values = board.trim().split(/\s\s|\s/)
-    const rows = [
-      [values[0], values[1], values[2], values[3], values[4]],
-      [values[5], values[6], values[7], values[8], values[9]],
-      [values[10], values[11], values[12], values[13], values[14]],
-      [values[15], values[16], values[17], values[18], values[19]],
-      [values[20], values[21], values[22], values[23], values[24]],
-    ]
-    const columns = [
-      [values[0], values[5], values[10], values[15], values[20]],
-      [values[1], values[6], values[11], values[16], values[21]],
-      [values[2], values[7], values[12], values[17], values[22]],
-      [values[3], values[8], values[13], values[18], values[23]],
-      [values[4], values[9], values[14], values[19], values[24]],
-    ]
-    return {
-      values,
-      rows,
-      columns,
-      completed: false,
-    }
-  })
+  const processedBoards = processBoards(boardsRaw)
 
   const game = {}
 
@@ -114,10 +95,11 @@ const partTwo = (input) => {
         game[val] = [...game[val], processedBoards[index]]
       }
     })
-    game[val].forEach((board, boardIndex) => {
+    game[val].forEach((board) => {
       if(numberOfBoards === completedBoards) return;
       if(board.completed) return;
       board.rows.forEach((row, rowIndex) => {
+        if(board.completed) return;
         if(row.indexOf(val) < 0) return;
 
         const currentRow = board.rows[rowIndex]
@@ -130,6 +112,7 @@ const partTwo = (input) => {
         lastValue = val
       })
       board.columns.forEach((column, columnIndex) => {
+        if(board.completed) return;
         if(column.indexOf(val) < 0) return;
 
         const currentColumn = board.columns[columnIndex]
@@ -148,17 +131,7 @@ const partTwo = (input) => {
     return acc + val.reduce((rowAcc, rowVal) => parseInt(rowVal, 10) + rowAcc, 0)
   }, 0)
 
-  // return parseInt(lastValue, 10) * sumOfRemainingBoard
-  return {
-    // numberOfBoards,
-    // completedBoards,
-    // lastBoard,
-    lastValue,
-    sumOfRemainingBoard
-  }
-
+  return parseInt(lastValue, 10) * sumOfRemainingBoard
 }
-
-// 7140
 
 module.exports = { partOne, partTwo }
