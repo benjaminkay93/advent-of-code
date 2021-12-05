@@ -40,5 +40,5 @@ test('part 2', () => {
 })
 
 test('part 2 actual', () => {
-  expect(partTwo(input)).toBe()
+  expect(partTwo(input)).toBe(7440311)
 })
