@@ -1,18 +1,21 @@
-const partOne = (input) => {
+const getCounts = (input) => {
   const counts = {}
 
-  const parsedInput = input.split('\n').map(val => {
-    const ints = val.split('').map((character, index) => {
+  input.map(val => {
+    const ints = val.split('').forEach((character, index) => {
       if(!counts[index]) {
         counts[index] = {
           positive: 0,
-          negative: 0
+          positiveValues: [],
+          negative: 0,
+          negativeValues: [],
         }
       }
       if(character === "1") {
         counts[index] = {
           ...counts[index],
           positive: counts[index].positive + 1,
+          positiveValues: [...counts[index].positiveValues, val]
         }
       }
 
@@ -20,11 +23,19 @@ const partOne = (input) => {
         counts[index] = {
           ...counts[index],
           negative: counts[index].negative + 1,
+          negativeValues: [...counts[index].negativeValues, val]
         }
       }
     })
-    return ints
   })
+
+  return counts
+}
+
+
+const partOne = (input) => {
+  const parsedInput = input.split('\n')
+  const counts = getCounts(parsedInput)
 
   const gamma = Object.values(counts).reduce((acc, val) => {
     const result = val.negative < val.positive ? '1' : '0';
@@ -39,6 +50,44 @@ const partOne = (input) => {
   return parseInt(gamma, 2) * parseInt(epsilon, 2);
 }
 
-const partTwo = (input) => {}
+const cycleIndexOxygen = (input, index) => {
+  if (input.length === 1) {
+    return input[0]
+  }
+  const counts = getCounts(input)
+  
+  if (counts[index].positive >= counts[index].negative) {
+    return cycleIndexOxygen(counts[index].positiveValues, index + 1)
+  }
+
+  if (counts[index].negative > counts[index].positive) {
+    return cycleIndexOxygen(counts[index].negativeValues, index + 1)
+  }
+}
+
+const cycleIndexCO2 = (input, index) => {
+  if (input.length === 1) {
+    return input[0]
+  }
+  const counts = getCounts(input)
+
+  if (counts[index].positive < counts[index].negative) {
+    return cycleIndexCO2(counts[index].positiveValues, index + 1)
+  }
+
+  if (counts[index].negative <= counts[index].positive) {
+    return cycleIndexCO2(counts[index].negativeValues, index + 1)
+  }
+}
+
+const partTwo = (input) => {
+  const parsedInput = input.split('\n')
+
+  const oxygen = cycleIndexOxygen(parsedInput, 0)
+
+  const co2 = cycleIndexCO2(parsedInput, 0)
+
+  return parseInt(oxygen, 2) * parseInt(co2, 2);
+}
 
 module.exports = { partOne, partTwo }
