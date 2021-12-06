@@ -5,12 +5,12 @@ const FLOOR = '.'
 const getSurroundingSeats = (input, x, y, xLength, yLength, cell) => {
   if (cell === FLOOR) return FLOOR
 
-  let fullSeats = 0;
+  let fullSeats = 0
 
-  for(let i = -1; i < 2; i++ ){
-    for(let j = -1; j < 2; j++){
-      if(!(i == 0 && j == 0) && !(y + i <= -1 || y + i >= yLength) && !(x + j <= -1 || x + j >= xLength)){ // Don't count itself.
-        if(input[y + i][x + j] === OCCUPIED) {
+  for (let i = -1; i < 2; i++) {
+    for (let j = -1; j < 2; j++) {
+      if (!(i === 0 && j === 0) && !(y + i <= -1 || y + i >= yLength) && !(x + j <= -1 || x + j >= xLength)) { // Don't count itself.
+        if (input[y + i][x + j] === OCCUPIED) {
           fullSeats = fullSeats + 1
         }
       }
@@ -28,7 +28,7 @@ const flattenArray = (array) => {
 let lastInput = ''
 
 const recursivelyMakeStable = (input) => {
-  if(lastInput === input) return input;
+  if (lastInput === input) return input
   lastInput = input
   const startingInput = input.split('\n').map(line => line.split(''))
 
@@ -44,7 +44,7 @@ const recursivelyMakeStable = (input) => {
 }
 
 const partOne = (input) => {
-  const stableArray = recursivelyMakeStable(input);
+  const stableArray = recursivelyMakeStable(input)
   return (stableArray.match(new RegExp(OCCUPIED, "g")) || []).length
 }
 

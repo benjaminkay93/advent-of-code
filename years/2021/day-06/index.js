@@ -35,7 +35,7 @@ const simulateDays = (input, days) => {
     currentFish = simulateDay(currentFish)
   }
 
-  return Object.values(currentFish).reduce((acc, val) => acc+val, 0)
+  return Object.values(currentFish).reduce((acc, val) => acc + val, 0)
 }
 
 const partOne = (input) => simulateDays(input, 80)

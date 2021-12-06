@@ -65,13 +65,13 @@ const partOne = (passedInput) => {
 
   const coordinates = parseIntoCoordinates(input)
   const bounds = getUpperAndLowerBounds(coordinates)
-  const intialGrid = seedInitialGrid(bounds, coordinates)
+  seedInitialGrid(bounds, coordinates)
 
   return undefined
 }
 
 const partTwo = (passedInput) => {
-  const input = passedInput.split('\n')
+  passedInput.split('\n')
 
   return undefined
 }

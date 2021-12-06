@@ -1,9 +1,9 @@
 const partOne = (input) => {
-  let horizontal = 0;
-  let depth = 0;
+  let horizontal = 0
+  let depth = 0
 
   input.split('\n').forEach(val => {
-    const [direction, movement] = val.split(' ') 
+    const [direction, movement] = val.split(' ')
     if (direction === 'forward') {
       horizontal = horizontal + parseInt(movement, 10)
     }
@@ -19,12 +19,12 @@ const partOne = (input) => {
 }
 
 const partTwo = (input) => {
-  let horizontal = 0;
-  let depth = 0;
-  let aim = 0;
+  let horizontal = 0
+  let depth = 0
+  let aim = 0
 
   input.split('\n').forEach(val => {
-    const [direction, movement] = val.split(' ') 
+    const [direction, movement] = val.split(' ')
     if (direction === 'forward') {
       horizontal = horizontal + parseInt(movement, 10)
       depth = depth + (aim * parseInt(movement, 10))

@@ -6,7 +6,7 @@ const partOneTests = [
   [0, 'Aa'],
   [0, 'abBA'],
   [1, 'cCc'],
-  [10, 'dabAcCaCBAcCcaDA']
+  [10, 'dabAcCaCBAcCcaDA'],
 ]
 
 test.each(partOneTests)('part 1', (answer, input) => {

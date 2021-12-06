@@ -29,42 +29,42 @@ const partOne = (input) => {
 
   const game = {}
 
-  let bingo = false;
-  let bingoValue = null;
-  let bingoRemaining = null;
+  let bingo = false
+  let bingoValue = null
+  let bingoRemaining = null
 
   bingoCalloutOrder.forEach(val => {
-    game[val] = [];
+    game[val] = []
     processedBoards.forEach((_, index) => {
       if (processedBoards[index].values.includes(val)) {
         game[val] = [...game[val], processedBoards[index]]
       }
     })
     game[val].forEach((board) => {
-      if(bingo) return;
+      if (bingo) return
       board.rows.forEach((row, rowIndex) => {
-        if(row.indexOf(val) < 0) return;
+        if (row.indexOf(val) < 0) return
 
         const currentRow = board.rows[rowIndex]
         currentRow.splice(row.indexOf(val), 1)
 
-        if(currentRow.length !== 0) return;
-        
+        if (currentRow.length !== 0) return
+
         bingo = true
         bingoValue = val
-        bingoRemaining= board.rows
+        bingoRemaining = board.rows
       })
       board.columns.forEach((column, columnIndex) => {
-        if(column.indexOf(val) < 0) return;
+        if (column.indexOf(val) < 0) return
 
         const currentColumn = board.columns[columnIndex]
         currentColumn.splice(column.indexOf(val), 1)
-        
-        if(currentColumn.length !== 0) return;
+
+        if (currentColumn.length !== 0) return
 
         bingo = true
         bingoValue = val
-        bingoRemaining= board.columns
+        bingoRemaining = board.columns
       })
     })
   })
@@ -83,43 +83,43 @@ const partTwo = (input) => {
 
   const game = {}
 
-  const numberOfBoards = processedBoards.length;
-  let completedBoards = 0;
-  let lastBoard = null;
-  let lastValue = null;
+  const numberOfBoards = processedBoards.length
+  let completedBoards = 0
+  let lastBoard = null
+  let lastValue = null
 
   bingoCalloutOrder.forEach(val => {
-    game[val] = [];
+    game[val] = []
     processedBoards.forEach((_, index) => {
       if (processedBoards[index].values.includes(val)) {
         game[val] = [...game[val], processedBoards[index]]
       }
     })
     game[val].forEach((board) => {
-      if(numberOfBoards === completedBoards) return;
-      if(board.completed) return;
+      if (numberOfBoards === completedBoards) return
+      if (board.completed) return
       board.rows.forEach((row, rowIndex) => {
-        if(board.completed) return;
-        if(row.indexOf(val) < 0) return;
+        if (board.completed) return
+        if (row.indexOf(val) < 0) return
 
         const currentRow = board.rows[rowIndex]
         currentRow.splice(row.indexOf(val), 1)
 
-        if(currentRow.length !== 0) return;
-        board.completed = true;
+        if (currentRow.length !== 0) return
+        board.completed = true
         completedBoards = completedBoards + 1
         lastBoard = board
         lastValue = val
       })
       board.columns.forEach((column, columnIndex) => {
-        if(board.completed) return;
-        if(column.indexOf(val) < 0) return;
+        if (board.completed) return
+        if (column.indexOf(val) < 0) return
 
         const currentColumn = board.columns[columnIndex]
         currentColumn.splice(column.indexOf(val), 1)
-        
-        if(currentColumn.length !== 0) return;
-        board.completed = true;
+
+        if (currentColumn.length !== 0) return
+        board.completed = true
         completedBoards = completedBoards + 1
         lastBoard = board
         lastValue = val
