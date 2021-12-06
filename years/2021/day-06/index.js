@@ -14,7 +14,7 @@ const simulateDay = (initialCounts) => {
   }
 }
 
-const partOne = (input) => {
+const simulateDays = (input, days) => {
   let counts = {
     0: 0,
     1: 0,
@@ -35,7 +35,7 @@ const partOne = (input) => {
     counts[val] = counts[val] + 1
   })
 
-  for (let i = 1; i <= 80; i++) {
+  for (let i = 1; i <= days; i++) {
     counts = simulateDay(counts)
   }
 
@@ -44,6 +44,8 @@ const partOne = (input) => {
   return totalFish
 }
 
-const partTwo = (input) => {}
+const partOne = (input) => simulateDays(input, 80)
+
+const partTwo = (input) => simulateDays(input, 256)
 
 module.exports = { partOne, partTwo }
