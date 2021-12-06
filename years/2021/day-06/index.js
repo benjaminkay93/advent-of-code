@@ -1,21 +1,21 @@
-const simulateDay = (initialCounts) => {
-  const fishToSpawn = initialCounts[0]
+const simulateDay = (currentFish) => {
+  const fishToSpawn = currentFish[0]
 
   return {
-    0: initialCounts[1],
-    1: initialCounts[2],
-    2: initialCounts[3],
-    3: initialCounts[4],
-    4: initialCounts[5],
-    5: initialCounts[6],
-    6: initialCounts[7] + fishToSpawn,
-    7: initialCounts[8],
+    0: currentFish[1],
+    1: currentFish[2],
+    2: currentFish[3],
+    3: currentFish[4],
+    4: currentFish[5],
+    5: currentFish[6],
+    6: currentFish[7] + fishToSpawn,
+    7: currentFish[8],
     8: fishToSpawn,
   }
 }
 
 const simulateDays = (input, days) => {
-  let counts = {
+  let currentFish = {
     0: 0,
     1: 0,
     2: 0,
@@ -28,20 +28,14 @@ const simulateDays = (input, days) => {
   }
 
   input.split(',').forEach(val => {
-    if (!counts[val]) {
-      counts[val] = 1
-      return;
-    }
-    counts[val] = counts[val] + 1
+    currentFish[val] = currentFish[val] + 1
   })
 
   for (let i = 1; i <= days; i++) {
-    counts = simulateDay(counts)
+    currentFish = simulateDay(currentFish)
   }
 
-  const totalFish = Object.values(counts).reduce((acc, val) => acc+val, 0)
-  
-  return totalFish
+  return Object.values(currentFish).reduce((acc, val) => acc+val, 0)
 }
 
 const partOne = (input) => simulateDays(input, 80)
