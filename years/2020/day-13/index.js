@@ -1,5 +1,3 @@
-const ts = require("typescript")
-
 const nextBusDepart = (startingTs, busIds) => {
   const timeToNextBus = busIds.map(id => id - (startingTs % id))
 
@@ -22,31 +20,32 @@ const partOne = (input) => {
   return timeUntilBus * busId
 }
 
-// const partTwo = (input) => {
-//   const [, rawBusIds] = input.split('\n')
-//   const busIds = rawBusIds.split(',').map(val => {
-//     if (val === 'x') return 'x'
-//     return parseInt(val, 10)
-//   })
+/* My attempt that works but is too slow
+const partTwo = (input) => {
+  const [, rawBusIds] = input.split('\n')
+  const busIds = rawBusIds.split(',').map(val => {
+    if (val === 'x') return 'x'
+    return parseInt(val, 10)
+  })
 
-//   console.log(busIds)
+  console.log(busIds)
 
-//   let converganceTs = busIds[0]
-//   let successful = false
+  let converganceTs = busIds[0]
+  let successful = false
 
-//   while (!successful) {
-//     converganceTs = converganceTs + busIds[0]
-//     successful = busIds.reduce((validator, value, index) => {
-//       if (!validator) return validator
-//       if (value === 'x') return validator
-//       return (converganceTs + index) % value === 0
-//     }, true)
-//   }
+  while (!successful) {
+    converganceTs = converganceTs + busIds[0]
+    successful = busIds.reduce((validator, value, index) => {
+      if (!validator) return validator
+      if (value === 'x') return validator
+      return (converganceTs + index) % value === 0
+    }, true)
+  }
 
-//   return converganceTs
-// }
+  return converganceTs
+}
+*/
 
-// safe with negative numbers unlike JS % operator
 const absoluteModulo = (a, b) => ((a % b) + b) % b
 
 const getInverse = (a, mod) => {
@@ -60,16 +59,6 @@ const getInverse = (a, mod) => {
 }
 
 const chineseRemainderTheorem = (lines) => {
-  // x =- a (mod n)
-  // x - some unknown, constant value of t
-  // a - bus number MINUS offset % bus number
-  // n - cycle length (= bus number)
-
-  // to solve each row, we also need
-  // N - all n's added up
-  // nU = N / n
-  // i - inverse modulo
-
   const N = lines.reduce((acc, val) => {
     if (val === "x") return acc
     return acc === null ? val : acc * val
