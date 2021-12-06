@@ -20,9 +20,9 @@ const rightMap = {
   [NORTH]: EAST,
 }
 
-const partOne = (input) => {
-  const parsedInput = input.split('\n')
+const getManhattanDistance = (x, y) => Math.sqrt(x * x) + Math.sqrt(y * y)
 
+const partOne = (input) => {
   let long = 0
   let lat = 0
   let currentDirection = EAST
@@ -47,16 +47,63 @@ const partOne = (input) => {
     [FORWARD]: (amount) => action[currentDirection](amount),
   }
 
-  parsedInput.forEach(val => {
+  input.split('\n').forEach(val => {
     const direction = val.charAt(0)
     const amount = parseInt(val.substring(1), 10)
 
     action[direction](amount)
   })
 
-  return Math.sqrt(long * long) + Math.sqrt(lat * lat)
+  return getManhattanDistance(long, lat)
 }
 
-const partTwo = (input) => {}
+const partTwo = (input) => {
+  let long = 0
+  let lat = 0
+  let waypointLong = 10 // +ve EAST -ve WEST
+  let waypointLat = 1 // +ve NORTH -ve SOUTH
+
+  // 4 lat, -10 Long
+  // 10 lat, 4 long
+
+  const action = {
+    [EAST]: (amount) => { waypointLong = waypointLong + amount },
+    [WEST]: (amount) => { waypointLong = waypointLong - amount },
+    [NORTH]: (amount) => { waypointLat = waypointLat + amount },
+    [SOUTH]: (amount) => { waypointLat = waypointLat - amount },
+    [LEFT]: (amount) => {
+      const valueToRotate = amount / 90
+      for (let i = 0; i < valueToRotate; i++) {
+        const newWaypointLong = -waypointLat
+        const newWaypointLat = waypointLong
+
+        waypointLong = newWaypointLong
+        waypointLat = newWaypointLat
+      }
+    },
+    [RIGHT]: (amount) => {
+      const valueToRotate = amount / 90
+      for (let i = 0; i < valueToRotate; i++) {
+        const newWaypointLong = waypointLat
+        const newWaypointLat = -waypointLong
+
+        waypointLong = newWaypointLong
+        waypointLat = newWaypointLat
+      }
+    },
+    [FORWARD]: (amount) => {
+      long = long + (waypointLong * amount)
+      lat = lat + (waypointLat * amount)
+    },
+  }
+
+  input.split('\n').forEach(val => {
+    const direction = val.charAt(0)
+    const amount = parseInt(val.substring(1), 10)
+    action[direction](amount)
+  })
+
+  return getManhattanDistance(long, lat)
+}
 
 module.exports = { partOne, partTwo }

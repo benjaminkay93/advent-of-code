@@ -16,11 +16,15 @@ test('part 1 actual', () => {
 })
 
 test('part 2', () => {
-  const testInput = ``
+  const testInput = `F10
+N3
+F7
+R90
+F11`
 
-  expect(partTwo(testInput)).toBe()
+  expect(partTwo(testInput)).toBe(286)
 })
 
 test('part 2 actual', () => {
-  expect(partTwo(input)).toBe()
+  expect(partTwo(input)).toBe(138669)
 })
