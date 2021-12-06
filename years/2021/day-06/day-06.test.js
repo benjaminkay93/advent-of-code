@@ -18,6 +18,5 @@ test('part 2', () => {
 })
 
 test('part 2 actual', () => {
-  const startTime = Date.now()
   expect(partTwo(input)).toBe(1728611055389)
 })

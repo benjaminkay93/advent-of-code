@@ -2,6 +2,7 @@ const UNKNOWN = 'unknown';
 const X = 'x';
 const Y = 'y';
 
+// Credit to https://github.com/romellem for having a better way of doing this than my first one <3 
 function* range(from, to) {
 	const stepValue = to > from ? 1 : -1;
 	let totalSteps = Math.abs(from - to) + 1;
