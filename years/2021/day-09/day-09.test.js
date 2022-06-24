@@ -16,11 +16,15 @@ test('part 1 actual', () => {
 })
 
 test('part 2', () => {
-  const testInput = ``
+  const testInput = `2199943210
+3987894921
+9856789892
+8767896789
+9899965678`
 
-  expect(partTwo(testInput)).toBe()
+  expect(partTwo(testInput)).toBe(1134)
 })
 
 test('part 2 actual', () => {
-  expect(partTwo(input)).toBe()
+  expect(partTwo(input)).toBe(856716)
 })
