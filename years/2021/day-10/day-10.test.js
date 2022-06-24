@@ -2,9 +2,18 @@ const { partOne, partTwo } = require('.')
 const { input } = require('./input')
 
 test('part 1', () => {
-  const testInput = ``
+  const testInput = `[({(<(())[]>[[{[]{<()<>>
+[(()[<>])]({[<{<<[]>>(
+{([(<{}[<>[]}>{[]{[(<()>
+(((({<>}<{<{<>}{[]{[]{}
+[[<[([]))<([[{}[[()]]]
+[{[{({}]{}}([{[{{{}}([]
+{<[[]]>}<{[{[{[]{()[[[]
+[<(<(<(<{}))><([]([]()
+<{([([[(<>()){}]>(<<{{
+<{([{{}}[<[[[<>{}]]]>[]]`
 
-  expect(partOne(testInput)).toBe()
+  expect(partOne(testInput)).toBe(26397)
 })
 
 test('part 1 actual', () => {
