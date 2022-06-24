@@ -124,8 +124,6 @@ const partTwo = (input) => {
 
     return acc + parseInt(endNumbers.join(''), 10)
   }, 0)
-
-  return outputValues[0]
 }
 
 module.exports = { partOne, partTwo }
