@@ -17,15 +17,24 @@ test('part 1', () => {
 })
 
 test('part 1 actual', () => {
-  expect(partOne(input)).toBe()
+  expect(partOne(input)).toBe(390993)
 })
 
 test('part 2', () => {
-  const testInput = ``
+  const testInput = `[({(<(())[]>[[{[]{<()<>>
+[(()[<>])]({[<{<<[]>>(
+{([(<{}[<>[]}>{[]{[(<()>
+(((({<>}<{<{<>}{[]{[]{}
+[[<[([]))<([[{}[[()]]]
+[{[{({}]{}}([{[{{{}}([]
+{<[[]]>}<{[{[{[]{()[[[]
+[<(<(<(<{}))><([]([]()
+<{([([[(<>()){}]>(<<{{
+<{([{{}}[<[[[<>{}]]]>[]]`
 
-  expect(partTwo(testInput)).toBe()
+  expect(partTwo(testInput)).toBe(288957)
 })
 
 test('part 2 actual', () => {
-  expect(partTwo(input)).toBe()
+  expect(partTwo(input)).toBe(2391385187)
 })
