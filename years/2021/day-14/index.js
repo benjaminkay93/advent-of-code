@@ -1,4 +1,4 @@
-const partOne = (input, steps = 10) => {
+const calculate = (input, stepCount) => {
   const [string, rawRules] = input.split('\n\n')
   const rules = {}
   rawRules.split('\n').map(line => line.split(' -> ')).forEach(([rule, newChar]) => {
@@ -6,35 +6,54 @@ const partOne = (input, steps = 10) => {
     rules[rule] = newChar
   })
 
-  let oldString = string
+  const rulesMap = {};
 
-  const step = () => {
-    const stringArray = oldString.split('')
-    
-    let newString = ''
-    
-    stringArray.forEach((char, index) => {
-      if (index + 1 === stringArray.length) {
-        newString = newString + char
-        return
-      }
-      newString = newString + char + rules[`${char}${stringArray[index + 1]}`]
-    })
-    oldString = newString
+  Object.keys(rules).forEach(key => {
+    rulesMap[key] = [key[0] + rules[key], rules[key] + key[1]];
+  })
+
+  let map = {};
+
+  for (let i = 0; i < string.length - 1; i++) {
+    const letterPair = string[i] + string[i + 1];
+    if (!map?.[letterPair]) {
+      map[letterPair] = 0
+    }
+    map[letterPair] += 1
   }
+  
+  const lastChar = string[string.length - 1];
 
   let i = 0;
-  while ( i < steps) {
-    step()
-    i++
-    console.log('step', i)
+  while ( i < stepCount) {
+    let current = {};
+    const keys = Object.keys(map);
+    keys.forEach(key => {
+      const next = rulesMap[key];
+      
+      if (!current?.[next[0]]) {
+        current[next[0]] = 0
+      }
+      current[next[0]] += map[key]
+      
+      if (!current?.[next[1]]) {
+        current[next[1]] = 0
+      }
+      current[next[1]] += map[key]
+    })
+    map = current;
+    i++;
   }
 
-  const count = {}
+  const count = {
+    [lastChar]: 1
+  };
 
-  oldString.split('').forEach(char => {
-    if(!count?.[char]) count[char] = 0
-    count[char] += 1
+  Object.keys(map).forEach(key => {
+    if (!count?.[key[0]]) {
+      count[key[0]] = 0
+    }
+    count[key[0]] += map[key]
   })
 
   const sortedCount = Object.values(count).sort((a, b) => a - b)
@@ -42,6 +61,7 @@ const partOne = (input, steps = 10) => {
   return sortedCount[sortedCount.length - 1] - sortedCount[0]
 }
 
-const partTwo = (input) => partOne(input, 40)
+const partOne = (input) => calculate(input, 10)
+const partTwo = (input) => calculate(input, 40)
 
 module.exports = { partOne, partTwo }

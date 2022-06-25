@@ -25,10 +25,10 @@ CN -> C`
 })
 
 test('part 1 actual', () => {
-  expect(partOne(input)).toBe()
+  expect(partOne(input)).toBe(2375)
 })
 
-test.only('part 2', () => {
+test('part 2', () => {
   const testInput = `NNCB
 
 CH -> B
@@ -52,5 +52,5 @@ CN -> C`
 })
 
 test('part 2 actual', () => {
-  expect(partTwo(input)).toBe()
+  expect(partTwo(input)).toBe(1976896901756)
 })
