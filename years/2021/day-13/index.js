@@ -43,7 +43,25 @@ const partTwo = (input) => {
     grid = strategy[direction](grid, foldNumber)
   })
 
-  return grid.length
+  const [maxX, maxY] = grid.reduce(([xMax, yMax], val) => {
+    const [x, y] = val.split(',').map(value => parseInt(value, 10))
+    const newXMax = x > xMax ? x : xMax
+    const newYMax = y > yMax ? y : yMax
+
+    return [newXMax, newYMax]
+  }, [0, 0])
+
+  const display = []
+
+  for(var y = 0; y <= maxY; y++) {
+    if(!display?.[y]) display.push('')
+    for(var x = 0; x<= maxX; x++) {
+      const char = grid.includes(`${x},${y}`) ? '#' : '.'
+      display[y] = display[y] + char
+    }
+  }
+
+  return display.join('\n')
 }
 
 module.exports = { partOne, partTwo }
