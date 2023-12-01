@@ -36,7 +36,7 @@ const partTwotMatcher = /(\d|one|two|three|four|five|six|seven|eight|nine|zero)/
 const partTwoReversedMatcher = /(\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin|orez)/g
 
 const partOne = (input) => {
-  const count = input.split('\n').map((code, index) => {
+  const count = input.split('\n').map((code) => {
     const parseCode = code.match(partOneMatcher)
     const firstNumber = numberMap[parseCode[0]]
     const lastNumber = numberMap[parseCode[parseCode.length - 1]]
@@ -48,7 +48,7 @@ const partOne = (input) => {
 }
 
 const partTwo = (input) => {
-  const count = input.split('\n').map((code, index) => {
+  const count = input.split('\n').map((code) => {
     const reversedCode = code.split('').reverse().join('')
     const first = code.match(partTwotMatcher)
     const last = reversedCode.match(partTwoReversedMatcher)
