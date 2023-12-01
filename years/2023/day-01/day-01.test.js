@@ -42,9 +42,9 @@ test('part 2 - simple just first', () => {
 })
 
 test('part 2 - simple overlapping discounts', () => {
-  const testInput = `zoneight`
+  const testInput = `abcone2threeightxyz`
 
-  expect(partTwo(testInput)).toBe(11)
+  expect(partTwo(testInput)).toBe(18)
 })
 
 test('part 2', () => {
@@ -60,5 +60,5 @@ zoneight234
 })
 
 test('part 2 actual', () => {
-  expect(partTwo(input)).toBe(54978) // Actually incorrect
+  expect(partTwo(input)).toBe(54985)
 })
