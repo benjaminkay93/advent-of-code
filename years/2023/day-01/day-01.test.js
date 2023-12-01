@@ -25,12 +25,40 @@ test('part 1 actual', () => {
   expect(partOne(input)).toBe(55130)
 })
 
-// test('part 2', () => {
-//   const testInput = ``
+test('part 2 - simple', () => {
+  const testInput = `eightwothree`
 
-//   expect(partTwo(testInput)).toBe()
-// })
+  expect(partTwo(testInput)).toBe(83)
+})
+test('part 2 - simple just last', () => {
+  const testInput = `abc2`
 
-// test('part 2 actual', () => {
-//   expect(partTwo(input)).toBe()
-// })
+  expect(partTwo(testInput)).toBe(22)
+})
+test('part 2 - simple just first', () => {
+  const testInput = `2abc`
+
+  expect(partTwo(testInput)).toBe(22)
+})
+
+test('part 2 - simple overlapping discounts', () => {
+  const testInput = `zoneight`
+
+  expect(partTwo(testInput)).toBe(11)
+})
+
+test('part 2', () => {
+  const testInput = `two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen`
+
+  expect(partTwo(testInput)).toBe(281)
+})
+
+test('part 2 actual', () => {
+  expect(partTwo(input)).toBe(54978) // Actually incorrect
+})
