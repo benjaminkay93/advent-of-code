@@ -66,6 +66,7 @@ const partTwo = (input) => {
       numbers,
     }
   })
-  return lines.filter(itterateTestBase3).reduce((acc, value) => acc + value.target, 0)}
+  return lines.filter(itterateTestBase3).reduce((acc, value) => acc + value.target, 0)
+}
 
 module.exports = { partOne, partTwo }
