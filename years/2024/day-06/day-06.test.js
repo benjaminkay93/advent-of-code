@@ -2,19 +2,37 @@ const { partOne, partTwo } = require('.')
 const { input } = require('./input')
 
 test('part 1', () => {
-  const testInput = ``
+  const testInput = `....#.....
+.........#
+..........
+..#.......
+.......#..
+..........
+.#..^.....
+........#.
+#.........
+......#...`
 
-  expect(partOne(testInput)).toBe()
+  expect(partOne(testInput)).toBe(41)
 })
 
 test('part 1 actual', () => {
-  expect(partOne(input)).toBe()
+  expect(partOne(input)).toBe(5177)
 })
 
-test('part 2', () => {
-  const testInput = ``
+test.skip('part 2', () => {
+  const testInput = `....#.....
+.........#
+..........
+..#.......
+.......#..
+..........
+.#..^.....
+........#.
+#.........
+......#...`
 
-  expect(partTwo(testInput)).toBe()
+  expect(partTwo(testInput)).toBe(6)
 })
 
 test('part 2 actual', () => {
