@@ -2,9 +2,9 @@ const { partOne, partTwo } = require('.')
 const { input } = require('./input')
 
 test('part 1', () => {
-  const testInput = `2333133121414131402`
+  const testInput = ``
 
-  expect(partOne(testInput)).toBe('0099811188827773336446555566..............')
+  expect(partOne(testInput)).toBe()
 })
 
 test('part 1 actual', () => {
